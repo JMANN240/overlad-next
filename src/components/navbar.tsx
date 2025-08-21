@@ -15,6 +15,7 @@ export default function Navbar() {
 				{
 					token ?
 						<>
+							<Link href="/upload">Upload</Link>
 							<Link href="/profile">Your Images</Link>
 							<Link href="/logout">Log Out</Link>
 						</>

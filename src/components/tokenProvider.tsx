@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 interface TokenContextValue {
 	token: string | null;
@@ -15,6 +15,10 @@ export default function TokenProvider({
 	children: React.ReactNode
 }) {
 	const [token, setTokenRaw] = useState<string | null>(null);
+
+	useEffect(() => {
+		setTokenRaw(localStorage.getItem('overlad_token'));
+	});
 
 	function setToken(token: string | null) {
 		if (token !== null) {

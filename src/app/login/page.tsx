@@ -1,5 +1,6 @@
 'use client';
 
+import Button from "@/components/button";
 import { useToken } from "@/components/tokenProvider";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
@@ -51,7 +52,7 @@ export default function Login() {
 					}
 					<input className="outline-offset-1 focus:outline-1 border p-1" value={username} onChange={handleUsernameInput} type="text" name="username" placeholder="Username" required />
 					<input className="outline-offset-1 focus:outline-1 border p-1" value={password} onChange={handlePasswordInput} type="password" name="password" placeholder="Password" required />
-					<button className="outline-offset-1 focus:outline-1 border border-black p-1 bg-white text-black hover:bg-black hover:text-white duration-100" type="submit">Log In</button>
+					<Button type="submit">Log In</Button>
 				</form>
 			</div>
 		</main>
