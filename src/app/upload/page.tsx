@@ -3,7 +3,7 @@
 import Button from "@/components/button";
 import { useToken } from "@/components/tokenProvider";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { useState } from "react";
 
 export default function Upload() {
     const router = useRouter();
@@ -19,7 +19,7 @@ export default function Upload() {
         const formData = new FormData();
         formData.append("image", file);
 
-        const res = await fetch("http://localhost:3000/upload", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/upload`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -40,7 +40,7 @@ export default function Upload() {
                         errorText &&
                         <p className="text-red-500">{errorText}</p>
                     }
-                    <input className="outline-offset-1 focus:outline-1 border p-1" onChange={(e) => setFile(e.target.files?.[0] || null)} type="file" name="image" required />
+                    <input className="outline-offset-1 focus:outline-1 border p-1" onChange={(e) => setFile(e.target.files?.[0] || null)} type="file" name="image" accept="image/*" required />
                     <Button type="submit">Upload</Button>
                 </form>
             </div>

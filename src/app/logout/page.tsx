@@ -11,7 +11,7 @@ export default function Logout() {
 	useEffect(() => {
 		setToken(null);
 		router.push('/');
-	}, []);
+	}, [router, setToken]);
 
 	return (
 		<main>

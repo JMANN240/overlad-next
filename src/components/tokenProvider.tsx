@@ -18,7 +18,7 @@ export default function TokenProvider({
 
 	useEffect(() => {
 		setTokenRaw(localStorage.getItem('overlad_token'));
-	});
+	}, []);
 
 	function setToken(token: string | null) {
 		if (token !== null) {

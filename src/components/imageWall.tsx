@@ -13,7 +13,7 @@ export default function ImageWall({
                 imageIds.map((imageId) => {
                     return (
                         <Link key={imageId} href={`/images/${imageId}`}>
-                            <img className={imageClassName} src={`http://localhost:3000/images/${imageId}.png`} />
+                            <img className={imageClassName} src={`${process.env.NEXT_PUBLIC_API_URL}/images/${imageId}.png`} />
                         </Link>
                     );
                 })

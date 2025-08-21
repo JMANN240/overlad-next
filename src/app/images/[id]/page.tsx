@@ -14,10 +14,10 @@ export default function Image() {
     const [scale, setScale] = useState(1);
     const [thickness, setThickness] = useState(0);
 
-    const link = `http://localhost:3000/overlay?id=${params.id}&text=${text}&thickness=${thickness}&scale=${scale}`;
+    const link = `${process.env.NEXT_PUBLIC_API_URL}/overlay?id=${params.id}&text=${text}&thickness=${thickness}&scale=${scale}`;
 
     const copyLink = () => {
-        navigator.clipboard.writeText(link);
+        navigator.clipboard.writeText(encodeURI(link));
         setButtonText('Copied!');
         window.setTimeout(() => {
             setButtonText(DEFAULT_BUTTON_TEXT);

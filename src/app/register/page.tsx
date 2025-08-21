@@ -29,7 +29,7 @@ export default function Register() {
 	const handleSubmit = async (event: FormEvent) => {
 		event.preventDefault();
 
-		const response = await fetch('http://localhost:3000/register', {
+		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/register`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ export default function Register() {
 		if (response.status === 409) {
 			setErrorText('Username already exists!')
 		} else if (response.status === 201) {
-			const response = await fetch('http://localhost:3000/token', {
+			const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/token`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

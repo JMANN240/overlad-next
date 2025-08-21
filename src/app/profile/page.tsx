@@ -1,9 +1,7 @@
 'use client';
 
-import Button from "@/components/button";
 import ImageWall from "@/components/imageWall";
 import { useToken } from "@/components/tokenProvider";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Profile() {
@@ -13,7 +11,7 @@ export default function Profile() {
 
     useEffect(() => {
         const loadImages = async () => {
-            const response = await fetch("http://localhost:3000/user_images", {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user_images`, {
                 method: "GET",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -26,7 +24,7 @@ export default function Profile() {
         }
 
         loadImages();
-    });
+    }, [token]);
 
     return (
         <main className="flex flex-wrap p-8 gap-4">
